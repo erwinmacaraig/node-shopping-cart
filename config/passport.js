@@ -46,7 +46,7 @@ passport.use('local.signup', new LocalStrategy({
     });
 }));
 passport.use('local.signin', new LocalStrategy({
-    usernamefield: 'email',
+    usernameField: 'email',
     passwordField: 'password',
     passReqToCallback: true
 }, function(req, email, password, done){
@@ -64,15 +64,12 @@ passport.use('local.signin', new LocalStrategy({
         if (err) {
             return done(err);
         }
-        if (user) {
+        if (!user) {
             return done(null, false, {message: 'No user found.'});
         }
         if (!user.validPassword(password)) {
-            return disconnect(null, false, {message: 'Wrong password'});
-        }
-        var newUser = new User();
-        newUser.email = email;
-        newUser.password = newUser.encryptPassword(password);
+            return done(null, false, {message: 'Wrong password'});
+        }        
         return done(null, user);
     });
 }));

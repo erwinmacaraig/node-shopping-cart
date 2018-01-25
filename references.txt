@@ -1,0 +1,8 @@
+https://www.nodejsera.com/paypal-payment-integration-using-nodejs-part2.html
+https://developers.braintreepayments.com/guides/paypal/server-side/node
+https://www.nodejsera.com/paypal-payment-integration-using-nodejs-part1.html
+https://github.com/mschwarzmueller/nodejs-shopping-cart-tutorial
+https://www.youtube.com/watch?v=pF0nGWb9bps
+http://www.oodlestechnologies.com/blogs/Integrate-Paypal--In-NodeJS
+http://www.iamrohit.in/how-to-integrate-paypal-payment-gateway-using-php/
+http://www.iamrohit.in/how-to-integrate-paypal-payment-gateway-in-nodejs/
