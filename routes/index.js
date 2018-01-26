@@ -16,17 +16,20 @@ var paypal_config = {
 };
 paypal.configure(paypal_config.api);
 
-
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  if (req.session.views) {
+    ++req.session.views;
+  } else {
+    req.session.views = 1;
+  }
   Product.find(function(err, docs){
     var productChunks = [];
     var chunkSize = 3;
     for (var i = 0; i < docs.length; i+=chunkSize) {
       productChunks.push(docs.slice(i, i+chunkSize));
     }
-    res.render('shop/index', { title: 'Shopping Cart', products: productChunks });
+    res.render('shop/index', { title: 'Shopping Cart', products: productChunks, views: req.session.views });
   });
 
 });

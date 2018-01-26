@@ -13,7 +13,8 @@ var session = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash');
 var validator = require('express-validator');
-var MongoStore = require('connect-mongo')(session);
+// var MongoStore = require('connect-mongo')(session);
+var MemcachedStore = require('connect-memcached')(session);
 
 var app = express();
 
@@ -35,9 +36,15 @@ app.use(validator());
 app.use(cookieParser());
 app.use(session({
   secret: 'secret-session',
+  key: 'test',
+  proxy: true,
+  store: new MemcachedStore({
+    hosts: ['127.0.0.1:11211'],
+    secret: 'Traffic Jam'
+  }),
   resave: false,
   saveUninitialized: false,
-  store: new MongoStore({mongooseConnection: mongoose.connection}),
+  // store: new MongoStore({mongooseConnection: mongoose.connection}),
   cookie: { maxAge: 180 * 60 * 1000}
 }));
 app.use(flash());

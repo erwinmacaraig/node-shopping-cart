@@ -6,3 +6,6 @@ https://www.youtube.com/watch?v=pF0nGWb9bps
 http://www.oodlestechnologies.com/blogs/Integrate-Paypal--In-NodeJS
 http://www.iamrohit.in/how-to-integrate-paypal-payment-gateway-using-php/
 http://www.iamrohit.in/how-to-integrate-paypal-payment-gateway-in-nodejs/
+============================
+
+- http://www.codershood.info/2016/07/19/nodejs-paypal-integration/
